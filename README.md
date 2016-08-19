@@ -3,35 +3,26 @@ Start Server
 
 ```
 npm install
-node index.js
+node app/index.js
 ```
 
-Will listen on `3000`
+Will listen on `3000`.
 
-Client: Say hello
------------------
+Endpoints
+---------
 
-```
-curl localhost:3000
-```
+Use command `http` from [httppie](https://github.com/jkbrzt/httpie).
 
-Client: POST with form data
----------------------------
+Sync api:
 
 ```
-curl -X POST -d '{"name":"bbb","email":"bbb.com"}' localhost:3000/user
+http POST http://localhost:3000/sync/users username=aaa password=111
+http http://localhost:3000/sync/users
 ```
 
-Client: POST with JSON
------------------------
+Async api:
 
 ```
-curl -X POST -d '{"name":"bbb","email":"bbb.com"}' -H "Content-Type: application/json" localhost:3000/user
-```
-
-Client: Show users
--------------------
-
-```
-curl localhost:3000/users
+http POST http://localhost:3000/async/users username=aaa password=111
+http http://localhost:3000/async/users
 ```
